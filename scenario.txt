@@ -1,0 +1,25 @@
+PrintMode abstract class contains the following fields - number of pages, page size, orientation, 
+color intensity and cost per page. It also contains the following abstract methods apart from the 
+getter and setter methods - saveToner, savePage and boost. Three classes namely TonerSaveMode, 
+PageSaveMode and BoosterMode extend the PrintMode abstract class. TonerSaveMode additionally contains
+a field named tonerSavingLevel. In the saveToner method, if tonerSavingLevel is set high, color 
+intensity is reduced by following a well-known standard algorithm. Similarly, if tonerSavingLevel is
+medium and low, two different algorithms are used to reduce color intensity. In the PageSaveMode, a
+single algorithm is used to adjust page size and orientation in a way that the number of pages
+required is reduced. The PageSaveMode contains another method called renderPreview that shows a 
+preview of the updated document. The BoosterMode increases the color intensity up to a maximum 
+acceptable level that is set via its intensityThreshold field.
+
+PrintJob class holds a queue of PrintRequest Objects that contains the reference of the Document 
+class and the reference of the TonerSaveMode, PageSaveMode and BoosterMode classes. PrintJob class 
+also holds an object of the PrioritySetting class. The two methods in PrintJob class namely pullJob 
+and changePriority help to send a specific job to production based on the priority setting and change 
+the priority of a job respectively. 
+
+Now, based on the aforementioned specification, redesign the system so that it contains as little 
+code smells as possible and implement your solution in source code format.  You may add, modify and 
+reorganize any of the aforementioned elements in the scenario as needed. However, you cannot delete 
+any element. In your source code, whenever you address a code smell, write which one you have 
+addressed and solution strategy as a comment. Also note that, you do not need to implement the actual
+algorithm to handle print jobs, rather implement a simulated version of it according to the 
+specification. 
